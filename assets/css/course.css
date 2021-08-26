@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Montserrat';
+}
+
+body {
+  font-family: 'Montserrat';
+}
+
+/* Navbar */
+.navbar {
+  background-image: linear-gradient(to right, #AD58B2, #C188C9);
+}
+
+.navbar-brand span {
+  font-weight: 500;
+  color: #fff;
+}
+
+.navbar-nav li a {
+  color: #fff !important;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.navbar-title {
+  font-weight: 500;
+  background: -webkit-linear-gradient(90deg, rgba(233,12,102,1) 12%, rgba(3,182,233,1) 58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list-course-child {
+  text-decoration: none;
+  color: #000;
+}
+
+.list-course-child:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.course-active {
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background-color: #ef6c00;
+}
+
+@media only screen and (max-width: 991px) {
+  .list-course {
+    display: none;
+  }
+}

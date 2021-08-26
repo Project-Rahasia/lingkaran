@@ -1,0 +1,16 @@
+{
+  "name" : "Lingkaran",
+  "short_name" : "Lingkaran",
+  "description" : "Lingkaran",
+  "start_url" : "/index.html",
+  "display" : "standalone",
+  "background_color" : "#AD58B2",
+  "theme_color" : "#F7BFFF",
+  "icons" : [
+      {
+          "src" : "circle.png",
+          "sizes" : "512x512",
+          "type" : "image/png"
+      }
+  ]
+}
