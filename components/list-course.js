@@ -34,26 +34,40 @@ document.querySelector(".list-course").innerHTML = `
           )}">Diameter</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child ${getChapChild(
+          <a href="/pages/materi-1/3/" class="list-course-child ${getChapChild(
             "materi-1/3/"
           )}">Jari-Jari</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child ${getChapChild(
+          <a href="/pages/materi-1/4/" class="list-course-child ${getChapChild(
             "materi-1/4/"
           )}">Busur</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Tali Busur</a>
+          <a href="/pages/materi-1/5/" class="list-course-child ${getChapChild(
+            "materi-1/5/"
+          )}">Tali Busur</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Apotema</a>
+          <a href="/pages/materi-1/6/" class="list-course-child ${getChapChild(
+            "materi-1/6/"
+          )}">Apotema</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Tembereng</a>
+          <a href="/pages/materi-1/7/" class="list-course-child ${getChapChild(
+            "materi-1/7/"
+          )}">Tembereng</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Juring</a>
+          <a href="/pages/materi-1/8/" class="list-course-child ${getChapChild(
+            "materi-1/8/"
+          )}">Juring</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-1/8/" class="list-course-child ">Latihan</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-1/8/" class="list-course-child ">Kuis</a>
         </div>
       </div>
     </div>
@@ -61,19 +75,22 @@ document.querySelector(".list-course").innerHTML = `
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Accordion Item #2
+        Keliling Lingkaran
       </button>
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Materi 2.1</a>
+          <a href="#" class="list-course-child">Pendahuluan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Materi 2.2</a>
+          <a href="#" class="list-course-child">Mengukur Keliling Suatu Lingkaran</a>
         </div>
         <div class="list-course">
-          <a href="#" class="list-course-child">Materi 2.3</a>
+          <a href="#" class="list-course-child">Menemukan Rumus Keliling Lingkaran</a>
+        </div>
+        <div class="list-course">
+          <a href="#" class="list-course-child">Kuis</a>
         </div>
       </div>
     </div>
@@ -81,19 +98,19 @@ document.querySelector(".list-course").innerHTML = `
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-        Accordion Item #3
+        Luas Lingkaran
       </button>
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Materi 3.1</a>
+          <a href="#" class="list-course-child">Pendahuluan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Materi 3.2</a>
+          <a href="#" class="list-course-child">Menentukan Rumus Luas Lingkaran</a>
         </div>
         <div class="list-course">
-          <a href="#" class="list-course-child">Materi 3.3</a>
+          <a href="#" class="list-course-child">Kuis</a>
         </div>
       </div>
     </div>
