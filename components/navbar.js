@@ -14,13 +14,13 @@ document.querySelector(".navbar").innerHTML = `
 <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav ms-auto">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Home</a>
+      <a class="nav-link active" href="/">Beranda</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Features</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Pricing</a>
+      <a class="nav-link" href="#">Tentang</a>
     </li>
   </ul>
 </div>

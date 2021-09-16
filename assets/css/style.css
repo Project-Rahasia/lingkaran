@@ -7,14 +7,14 @@
 }
 
 .btn-start {
-  background-color: #DC78EA;
-  color: #fff;
+  background-color: #edf0f5;
+  border-radius: 50px;
+  color: #000;
 }
 
 .btn-start:hover {
   background-color: #F7BFFF;
   color: #fff;
-  transition: ease 0.5s;
 }
 
 /* Nav */

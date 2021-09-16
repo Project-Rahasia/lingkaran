@@ -11,19 +11,49 @@ document.querySelector(".list-course").innerHTML = `
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Accordion Item #1
+        Bagian-Bagian Lingkaran
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse ${getChapClass("materi-1")}" aria-labelledby="panelsStayOpen-headingOne">
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse ${getChapClass(
+      "materi-1"
+    )}" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child ${getChapChild("materi-1/index.html")}">Materi 1.1</a>
+          <a href="/pages/materi-1/0/" class="list-course-child ${getChapChild(
+            "materi-1/0/"
+          )}">Pendahuluan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Materi 1.2</a>
+          <a href="/pages/materi-1/1/" class="list-course-child ${getChapChild(
+            "materi-1/1/"
+          )}">Titik Pusat</a>
         </div>
-        <div class="list-course">
-          <a href="#" class="list-course-child">Materi 1.3</a>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-1/2/" class="list-course-child ${getChapChild(
+            "materi-1/2/"
+          )}">Diameter</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child ${getChapChild(
+            "materi-1/3/"
+          )}">Jari-Jari</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child ${getChapChild(
+            "materi-1/4/"
+          )}">Busur</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child">Tali Busur</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child">Apotema</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child">Tembereng</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child">Juring</a>
         </div>
       </div>
     </div>
@@ -69,4 +99,4 @@ document.querySelector(".list-course").innerHTML = `
     </div>
   </div>
 </div>
-`
+`;
