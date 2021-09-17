@@ -64,7 +64,9 @@ document.querySelector(".list-course").innerHTML = `
           )}">Juring</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-1/8/" class="list-course-child ">Latihan</a>
+          <a href="/pages/materi-1/9/" class="list-course-child ${getChapChild(
+            "materi-1/9/"
+          )}"">Latihan</a>
         </div>
         <div class="list-course mb-3">
           <a href="/pages/materi-1/8/" class="list-course-child ">Kuis</a>
