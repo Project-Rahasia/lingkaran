@@ -1,7 +1,7 @@
 const getChapClass = (path) => {
   return this.location.pathname.substr(7, 8) === path ? "show" : "";
 };
-
+console.log(this.location.pathname.substr(7, 8));
 const getChapChild = (path) => {
   return this.location.pathname.substring(7) === path ? "course-active" : "";
 };
@@ -66,10 +66,10 @@ document.querySelector(".list-course").innerHTML = `
         <div class="list-course mb-3">
           <a href="/pages/materi-1/9/" class="list-course-child ${getChapChild(
             "materi-1/9/"
-          )}"">Latihan</a>
+          )}">Latihan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-1/8/" class="list-course-child ">Kuis</a>
+          <a href="/pages/materi-2/10/" class="list-course-child ">Kuis</a>
         </div>
       </div>
     </div>
@@ -80,19 +80,34 @@ document.querySelector(".list-course").innerHTML = `
         Keliling Lingkaran
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse ${getChapClass(
+      "materi-2"
+    )}" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Pendahuluan</a>
+          <a href="/pages/materi-2/0/" class="list-course-child ${getChapChild(
+            "materi-2/0/"
+          )}">Pendahuluan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Mengukur Keliling Suatu Lingkaran</a>
+          <a href="/pages/materi-2/1/" class="list-course-child ${getChapChild(
+            "materi-2/1/"
+          )}">Mengukur Keliling Suatu Lingkaran</a>
         </div>
-        <div class="list-course">
-          <a href="#" class="list-course-child">Menemukan Rumus Keliling Lingkaran</a>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-2/2/" class="list-course-child ${getChapChild(
+            "materi-2/2/"
+          )}">Menemukan Rumus Keliling Lingkaran</a>
         </div>
-        <div class="list-course">
-          <a href="#" class="list-course-child">Kuis</a>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-2/3/" class="list-course-child ${getChapChild(
+            "materi-2/3/"
+          )}">Latihan</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="/pages/materi-2/3/" class="list-course-child ${getChapChild(
+            "materi-2/4/"
+          )}">Kuis</a>
         </div>
       </div>
     </div>
@@ -111,7 +126,7 @@ document.querySelector(".list-course").innerHTML = `
         <div class="list-course mb-3">
           <a href="#" class="list-course-child">Menentukan Rumus Luas Lingkaran</a>
         </div>
-        <div class="list-course">
+        <div class="list-course mb-3">
           <a href="#" class="list-course-child">Kuis</a>
         </div>
       </div>
