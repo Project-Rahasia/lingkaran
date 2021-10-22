@@ -69,7 +69,9 @@ document.querySelector(".list-course").innerHTML = `
           )}">Latihan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-2/10/" class="list-course-child ">Kuis</a>
+          <a href="/pages/materi-1/10/" class="list-course-child ${getChapChild(
+            "materi-1/10/"
+          )}">Kuis</a>
         </div>
       </div>
     </div>
@@ -118,13 +120,22 @@ document.querySelector(".list-course").innerHTML = `
         Luas Lingkaran
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse ${getChapClass(
+      "materi-3"
+    )}" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Pendahuluan</a>
+          <a href="/pages/materi-3/0/" class="list-course-child ${getChapChild(
+            "materi-3/0/"
+          )}">Pendahuluan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Menentukan Rumus Luas Lingkaran</a>
+          <a href="/pages/materi-3/1/" class="list-course-child ${getChapChild(
+            "materi-3/1/"
+          )}">Menentukan Rumus Luas Lingkaran</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="#" class="list-course-child">Latihan</a>
         </div>
         <div class="list-course mb-3">
           <a href="#" class="list-course-child">Kuis</a>

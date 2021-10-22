@@ -123,7 +123,7 @@ span.src-text {
   text-align: center;
 }
 
-#next, #back {
+#next, #back, .end {
   font-size: 1em;
   padding: 0.5em 0.7em;
   border-radius: 2px;
