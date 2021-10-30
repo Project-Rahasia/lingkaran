@@ -107,7 +107,7 @@ document.querySelector(".list-course").innerHTML = `
           )}">Latihan</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-2/3/" class="list-course-child ${getChapChild(
+          <a href="/pages/materi-2/4/" class="list-course-child ${getChapChild(
             "materi-2/4/"
           )}">Kuis</a>
         </div>
