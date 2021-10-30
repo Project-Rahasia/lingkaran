@@ -1,7 +1,11 @@
 const getChapClass = (path) => {
   return this.location.pathname.substr(7, 8) === path ? "show" : "";
 };
-console.log(this.location.pathname.substr(7, 8));
+
+const getCollapsed = (path) => {
+  return this.location.pathname.substr(7, 8) !== path ? "collapsed" : "";
+};
+
 const getChapChild = (path) => {
   return this.location.pathname.substring(7) === path ? "course-active" : "";
 };
@@ -10,7 +14,9 @@ document.querySelector(".list-course").innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      <button class="accordion-button ${getCollapsed(
+        "materi-1"
+      )}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
         Bagian-Bagian Lingkaran
       </button>
     </h2>
@@ -78,7 +84,9 @@ document.querySelector(".list-course").innerHTML = `
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+      <button class="accordion-button ${getCollapsed(
+        "materi-2"
+      )}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
         Keliling Lingkaran
       </button>
     </h2>
@@ -116,7 +124,9 @@ document.querySelector(".list-course").innerHTML = `
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button ${getCollapsed(
+        "materi-3"
+      )}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
         Luas Lingkaran
       </button>
     </h2>
