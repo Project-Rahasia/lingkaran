@@ -74,7 +74,7 @@ document.querySelector(".list-course").innerHTML = `
             "materi-1/9/"
           )}">Latihan</a>
         </div>
-        <div class="list-course mb-3">
+        <div class="list-course">
           <a href="/pages/materi-1/10/" class="list-course-child ${getChapChild(
             "materi-1/10/"
           )}">Kuis</a>
@@ -114,7 +114,7 @@ document.querySelector(".list-course").innerHTML = `
             "materi-2/3/"
           )}">Latihan</a>
         </div>
-        <div class="list-course mb-3">
+        <div class="list-course">
           <a href="/pages/materi-2/4/" class="list-course-child ${getChapChild(
             "materi-2/4/"
           )}">Kuis</a>
@@ -147,8 +147,30 @@ document.querySelector(".list-course").innerHTML = `
         <div class="list-course mb-3">
           <a href="#" class="list-course-child">Latihan</a>
         </div>
-        <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Kuis</a>
+        <div class="list-course">
+          <a href="/pages/materi-3/3/" class="list-course-child ${getChapChild(
+            "materi-3/3/"
+          )}">Kuis</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      <button class="accordion-button ${getCollapsed(
+        "latihan"
+      )}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        Latihan
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse ${getChapClass(
+      "latihan"
+    )}" aria-labelledby="panelsStayOpen-headingFour">
+      <div class="accordion-body">
+        <div class="list-course">
+          <a href="/pages/latihan/" class="list-course-child ${getChapChild(
+            "latihan/"
+          )}">Latihan</a>
         </div>
       </div>
     </div>
