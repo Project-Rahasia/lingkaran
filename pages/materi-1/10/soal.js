@@ -1,7 +1,7 @@
 const questions = [
   {
     question:
-      "Perhatikan gambar lingkaran di bawah ini!<br><span class='text-danger'>Gambar</span><p>Titik P yang terletak tepat di tengah – tengah lingkaran tersebut disebut dengan. . . .</p>",
+      "Perhatikan gambar lingkaran di bawah ini!<br><img src='./img/Kuis1-No1.jpg' class='img-fluid' width='128'><p>Titik P yang terletak tepat di tengah – tengah lingkaran tersebut disebut dengan. . . .</p>",
     answers: {
       a: "titik pusat",
       b: "juring",
@@ -12,7 +12,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar lingkaran di bawah ini!<br><span class='text-danger'>Gambar</span><p>Garis lurus $\\overline{PR}$ pada lingkaran P disebut . . . .</p>",
+      "Perhatikan gambar lingkaran di bawah ini!<br><img src='./img/Kuis1-No2.jpg' class='img-fluid' width='128'><p>Garis lurus $\\overline{PR}$ pada lingkaran P disebut . . . .</p>",
     answers: {
       a: "titik pusat",
       b: "juring",
@@ -23,7 +23,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar lingkaran di bawah ini!<br><span class='text-danger'>Gambar</span><p>Garis lurus $\\overline{OQ}$ yang menghubungkan dua titik pada lingkaran dan melalui titik pusat dan membagi lingkaran menjadi dua bagian yang sama besar disebut . . . .</p>",
+      "Perhatikan gambar lingkaran di bawah ini!<br><img src='./img/Kuis1-No3.jpg' class='img-fluid' width='128'><p>Garis lurus $\\overline{OQ}$ yang menghubungkan dua titik pada lingkaran dan melalui titik pusat dan membagi lingkaran menjadi dua bagian yang sama besar disebut . . . .</p>",
     answers: {
       a: "apotema",
       b: "juring",
@@ -34,7 +34,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar di bawah ini!<br><span class='text-danger'>Gambar</span><p>Garis lengkung $\\widehat{BC}$ yang terletak pada keliling lingkaran dan menghubungkan dua titik sembarang dilengkungan disebut . . . .</p>",
+      "Perhatikan gambar di bawah ini!<br><img src='./img/Kuis1-No4.jpg' class='img-fluid' width='128'><p>Garis lengkung $\\widehat{BC}$ yang terletak pada keliling lingkaran dan menghubungkan dua titik sembarang dilengkungan disebut . . . .</p>",
     answers: {
       a: "tali busur",
       b: "apotema",
@@ -45,7 +45,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar di bawah ini!<br><span class='text-danger'>Gambar</span><p>Daerah yang berwarna kuning yang dibatasi oleh busur dan tali busur disebut . . . .</p>",
+      "Perhatikan gambar di bawah ini!<br><img src='./img/Kuis1-No5.jpg' class='img-fluid' width='128'><p>Daerah yang berwarna kuning yang dibatasi oleh busur dan tali busur disebut . . . .</p>",
     answers: {
       a: "tali busur",
       b: "apotema",
@@ -56,7 +56,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar di bawah ini!<br><span class='text-danger'>Gambar</span><p>Garis $\\overline{OK}$ yang menghubungkan titik pusat dengan tali busur disebut . . . .</p>",
+      "Perhatikan gambar di bawah ini!<br><img src='./img/Kuis1-No6.jpg' class='img-fluid' width='128'><p>Garis $\\overline{OK}$ yang menghubungkan titik pusat dengan tali busur disebut . . . .</p>",
     answers: {
       a: "jari-jari",
       b: "tali busur",
@@ -67,7 +67,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar di bawah ini!<br><span class='text-danger'>Gambar</span><p>Garis $\\overline{HI}$ yang berwarna hijau pada gambar lingkaran di bawah disebut . . . .</p>",
+      "Perhatikan gambar di bawah ini!<br><img src='./img/Kuis1-No7.jpg' class='img-fluid' width='128'><p>Garis $\\overline{HI}$ yang berwarna hijau pada gambar lingkaran di bawah disebut . . . .</p>",
     answers: {
       a: "jari-jari",
       b: "tali busur",
@@ -78,7 +78,7 @@ const questions = [
   },
   {
     question:
-      "Perhatikan gambar di bawah ini!<br><span class='text-danger'>Gambar</span><p>Daerah dalam lingkaran yang berwarna hijau  yang dibatasi oleh dua buah jari – jari dan sebuah busur disebut . . . .</p>",
+      "Perhatikan gambar di bawah ini!<br><img src='./img/Kuis1-No8.jpg' class='img-fluid' width='128'><p>Daerah dalam lingkaran yang berwarna hijau  yang dibatasi oleh dua buah jari – jari dan sebuah busur disebut . . . .</p>",
     answers: {
       a: "jari-jari",
       b: "tali busur",
@@ -89,7 +89,7 @@ const questions = [
   },
   {
     question:
-      "Berdasarkan gambar di bawah ini, apotema lingkaran ditunjukan oleh garis . . . .<br><span class='text-danger'>Gambar</span>",
+      "Berdasarkan gambar di bawah ini, apotema lingkaran ditunjukan oleh garis . . . .<br><img src='./img/Kuis1-No9.jpg' class='img-fluid' width='128'>",
     answers: {
       a: "$\\overline{BE}$",
       b: "$\\overline{BA}$",
