@@ -24,18 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    if (wrong > 0) {
-      message.innerHTML = `
-      <div class="card">
-        <div class="card-body">
-          <span class="text-danger">Masih ada jawaban yang salah</span>
-        </div>
-      </div>`;
-    } else if (wrong === 6) {
+    if (wrong === 6) {
       message.innerHTML = `
       <div class="card">
         <div class="card-body">
           <span class="text-danger">Semua jawaban salah</span>
+        </div>
+      </div>`;
+    } else if (wrong > 0) {
+      message.innerHTML = `
+      <div class="card">
+        <div class="card-body">
+          <span class="text-danger">Masih ada jawaban yang salah</span>
         </div>
       </div>`;
     } else {

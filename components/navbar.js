@@ -17,9 +17,6 @@ document.querySelector(".navbar").innerHTML = `
       <a class="nav-link active" href="/">Beranda</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Features</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="#">Tentang</a>
     </li>
   </ul>
