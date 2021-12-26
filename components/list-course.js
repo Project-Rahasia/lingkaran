@@ -145,7 +145,9 @@ document.querySelector(".list-course").innerHTML = `
           )}">Menentukan Rumus Luas Lingkaran</a>
         </div>
         <div class="list-course mb-3">
-          <a href="#" class="list-course-child">Latihan</a>
+          <a href="/pages/materi-3/2/" class="list-course-child ${getChapChild(
+            "materi-3/2/"
+          )}">Latihan</a>
         </div>
         <div class="list-course">
           <a href="/pages/materi-3/3/" class="list-course-child ${getChapChild(
