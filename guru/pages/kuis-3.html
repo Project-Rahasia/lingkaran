@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Guru</title>
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <!-- Data Tables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark menu">
+        
+      </div>
+      <div class="col py-3">
+        <div class="table-responsive">
+          <h3>Daftar Nilai Kuis 3</h3>
+          <table class="table table-bordered" id="table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Nilai</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody id="data">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <!-- Datatables JS -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script src="/guru/components/menu.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKF1ehY_LpbloGuiY5XlaCMDGrxLdjk6o",
+      authDomain: "lingkaran-e5cb9.firebaseapp.com",
+      projectId: "lingkaran-e5cb9",
+      storageBucket: "lingkaran-e5cb9.appspot.com",
+      messagingSenderId: "868768645134",
+      appId: "1:868768645134:web:90415ed11726433128fc5f"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+     // Get Kuis 1
+    async function getKuis(data, temp) {
+
+      const querySnapshot = await getDocs(collection(db, data));
+      let i = 1;
+      querySnapshot.forEach((doc) => {
+        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr')
+        tr.innerHTML = `
+          <td>${i++}</td>
+          <td>${doc.data().nama}</td>
+          <td>${doc.data().kelas}</td>
+          <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
+        `;
+        temp.appendChild(tr)
+      });
+
+      $(document).ready( function () {
+        $("#table").DataTable();
+      });
+    }
+
+    const data = document.querySelector("#data");
+    getKuis('kuis-3', data);
+
+    if (!sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('pass');
+      window.location = '../';
+    }
+  </script>
+</body>
+</html>

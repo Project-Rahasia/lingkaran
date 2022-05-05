@@ -15,16 +15,16 @@ document.querySelector(".menu").innerHTML = `
       </a>
       <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
         <li class="w-100">
-          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 1 </a>
+          <a href="./kuis-1.html" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 1 </a>
         </li>
         <li>
-          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 2 </a>
+          <a href="./kuis-2.html" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 2 </a>
         </li>
         <li>
-          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 3 </a>
+          <a href="./kuis-3.html" class="nav-link px-0"> <span class="d-none d-sm-inline">Kuis</span> 3 </a>
         </li>
         <li>
-          <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Latihan </a>
+          <a href="./latihan.html" class="nav-link px-0"> <span class="d-none d-sm-inline">Latihan </a>
         </li>
       </ul>
     </li>
@@ -36,8 +36,14 @@ document.querySelector(".menu").innerHTML = `
       <span class="d-none d-sm-inline mx-1">Guru</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li><a class="dropdown-item" href="#" id="logout">Sign out</a></li>
     </ul>
   </div>
 </div>
 `;
+
+document.getElementById("logout").addEventListener("click", () => {
+  sessionStorage.removeItem("user");
+  sessionStorage.removeItem("pass");
+  window.location = "../";
+});
