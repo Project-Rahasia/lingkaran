@@ -16,66 +16,7 @@
     <link rel="stylesheet" href="/assets/css/course.css">
 
     <title>Kuis - Lingkaran</title>
-    <style>
-      .slide {
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity 0.1s;
-      }
-
-      .active-slide {
-        opacity: 1;
-        z-index: 2;
-      }
-
-      .card {
-        position: relative;
-      }
-
-      .quiz-container {
-        position: relative;
-        height: 400px;
-        margin-top: 10px;
-      }
-
-      .question {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-
-      .answers {
-        margin-bottom: 20px;
-        text-align: left;
-        display: inline-block;
-      }
-
-      .answers label {
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      @media only screen and(max-width: 720px) {
-        .quiz-container {
-          height: 900px;
-        }
-      }
-
-      @media only screen and(max-width: 480px) {
-        .quiz-container {
-          height: 900px;
-        }
-      }
-
-      @media only screen and(max-width: 350px) {
-        .quiz-container {
-          height: 1000px;
-        }
-      }
-    </style>
+    
   </head>
   <body>
     <!-- Navbar -->
@@ -105,34 +46,35 @@
         <div class="col-lg-9 col-sm-12">
           <div class="card card-body">
             <!-- Start Course -->
-            <h1>Kuis</h1>
-            <div class="card my-3">
-              <div class="card-body course">
-                <h6>Petunjuk</h6>
-                <ul style="font-size: 13px">
-                  <li>Pilihlah dengan jawaban yang benar.</li>
-                  <li>Tekan tombol <span class="btn btn-sm btn-success">Selanjutnya</span> untuk berpindah kesoal selanjutnya.</li>
-                  <li>Tekan tombol <span class="btn btn-sm btn-secondary">Sebelumnya</span> untuk berpindah kesoal sebelumnya.</li>
-                  <li>Tekan tombol <span class="btn btn-sm btn-danger">Selesai</span> untuk mengakhiri menjawab soal, halaman akan menampilkan nilai.</li>
-                </ul>
-              </div>
-            </div>
+            <h1>Kuis Keliling Lingkaran</h1>
+
+            <p>Kuis ini bertujuan untuk menguji pengetahuan Anda tentang materi yang telah dipelajari di modul ini.</p>
             
-            <div class="card-body">
-              <!-- Container soal -->
-              
-              <div class="quiz-container">
-                <div id="quiz"></div>
-              </div>
-              <hr>
-              <div class="btn-action text-center">
-                <button id="back" class="btn btn-md btn-secondary shadow">Sebelumnya</button>
-                <button id="next" class="btn btn-md btn-success shadow" >Selanjutnya</button>
-                <button id="submit" class="btn btn-md btn-danger end shadow">Selesai</button>
-              </div>
-              <!-- End Container Soal -->
+            <div class="course">
+              <h5>Petunjuk</h5>
+              <ul>
+                <li>Isi Nama dan Kelas sebelum masuk lalu tekan tombol tombol <span class="btn btn-sm btn-primary">Mulai</span> ke halaman kuis </li>
+                <li>Terdapat 10 pertanyaan yang harus dikerjakan dalam kuis ini</li>
+                <li>Pilihlah dengan jawaban yang benar.</li>
+                <li>Tekan tombol <span class="btn btn-sm btn-success">Selanjutnya</span> untuk berpindah kesoal selanjutnya.</li>
+                <li>Tekan tombol <span class="btn btn-sm btn-secondary">Sebelumnya</span> untuk berpindah kesoal sebelumnya.</li>
+                <li>Tekan tombol <span class="btn btn-sm btn-danger">Selesai</span> untuk mengakhiri menjawab soal, halaman akan menampilkan nilai.</li>
+              </ul>
             </div>
-            
+
+            <p>Selamat Mengerjakan!</p>
+            <!-- End Course -->
+            <div class="col-lg-7">
+              <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control" autocomplete="off">
+              </div>
+              <div class="mb-3">
+                <label for="nama" class="form-label">Kelas</label>
+                <input type="text" id="kelas" placeholder="Kelas" class="form-control" autocomplete="off">
+              </div>
+              <button type="button" id="start" class="btn btn-md btn-primary py-1 px-4">Mulai</button>
+            </div>
           </div>
         </div>
       </div>
@@ -143,6 +85,7 @@
     <nav class="navbar fixed-bottom navbar-light bg-light" id="nav-bottom">
       
     </nav>
+
     <!-- Footer -->
     <section id="footer">
         
@@ -164,116 +107,22 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <!-- Bootstrap JS -->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/pages/materi-2/4/soal.js"></script>
-    <script>
-      let randomQuestion = questions.sort((a, b) => {return 0.5 - Math.random()});
+    <script type="text/javascript">
+      const nama = document.getElementById("nama");
+      const kelas = document.getElementById("kelas");
+      const start = document.getElementById("start");
 
-      function buildQuiz() {
-        const output = []
-        let currentNumber = 1
-
-        randomQuestion.forEach((currentQuestion, questionNumber) => {
-          const answers = []
-
-          for(letter in currentQuestion.answers) {
-              answers.push(
-                  `
-                    <label>
-                      <input type="radio" name="question${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
-                      <span>${letter}. ${currentQuestion.answers[letter]}<span>
-                    </label>
-                  `
-              )
-          }
-
-          output.push(
-              `
-                <div class="slide">
-                  <div class="question">${currentNumber}. ${currentQuestion.question}</div>
-                  <div class="answers">${answers.join("")}</div>
-                </div>
-              `
-          )
-          
-          currentNumber++
-        })
-        questionContainer.innerHTML = output.join("")
-        
-      }
-
-
-      function showSlide(n) {
-        slides[currentSlide].classList.remove('active-slide')
-        slides[n].classList.add('active-slide')
-        currentSlide = n
-
-        if(currentSlide === 0) {
-          backButton.style.display = "none"
+      start.addEventListener('click', () => {
+        if (nama.value === "" || kelas.value === "") {
+          alert("Data yang di isi belum lengkap");
         } else {
-          backButton.style.display = "inline-block"
+          var now = Date.now();
+          sessionStorage.setItem('nama', nama.value);
+          sessionStorage.setItem('kelas', kelas.value);
+          sessionStorage.setItem('timer-2', now);
+          location.href = './kuis.html';
         }
-
-        if(currentSlide === slides.length - 1) {
-          nextButton.style.display = "none"
-          submitButton.style.display = "inline-block"
-        } else {
-          nextButton.style.display = "inline-block"
-          submitButton.style.display = "none"
-        }
-      }
-
-      function nextSlide() {
-        showSlide(currentSlide + 1)
-      }
-
-      function backSlide() {
-        showSlide(currentSlide - 1)
-      }
-
-      function paginationSlide(n) {
-        showSlide(n)
-      }
-
-      let questionContainer = document.querySelector("#quiz")
-      let nextButton = document.querySelector("#next") 
-      let backButton = document.querySelector("#back") 
-      let submitButton = document.querySelector("#submit")
-
-      buildQuiz()
-
-      const slides = document.querySelectorAll(".slide")
-      let currentSlide = 0
-
-      showSlide(currentSlide)
-      nextButton.addEventListener("click", nextSlide)
-      backButton.addEventListener("click", backSlide)
-      submitButton.addEventListener("click", result)
-
-      function result() {
-        const answerContainers = questionContainer.querySelectorAll(".answers");
-
-        let correct = 0;
-        let wrong = 0;
-
-        randomQuestion.forEach((currentQuestion, questionNumber) => {
-          const answerContainer = answerContainers[questionNumber];
-
-          const selector = `input[name=question${questionNumber}]:checked`;
-          const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-          if (userAnswer === currentQuestion.correctAnswer) {
-            correct++;
-          } else {
-            wrong++;
-          }
-
-          sessionStorage.setItem('length', randomQuestion.length);
-          sessionStorage.setItem('wrong', wrong);
-          sessionStorage.setItem('correct', correct);
-          location.href = './result.html';
-        });
-      }
-
+      });
     </script>
   </body>
 </html>

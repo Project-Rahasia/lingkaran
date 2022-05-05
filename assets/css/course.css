@@ -132,7 +132,7 @@ span.src-text {
   display: block;
 }
 
-#next, #back, .end {
+#next, #back, .end, .next, .back {
   font-size: 1em;
   padding: 0.5em 0.7em;
   border-radius: 2px;
@@ -146,6 +146,15 @@ span.src-text {
   display: none;
 }
 
+.embed-responsive {
+  width: 900px;
+  height: 500px;
+  display: block;
+}
+
+.iframe-center {
+  margin: 0 auto;
+}
 
 /* Footer */
 #footer {
@@ -176,5 +185,31 @@ span.src-text {
 
   #nav-bottom {
     display: block;
+  }
+
+  .embed-responsive {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .embed-responsive {
+    width: 650px;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .embed-responsive {
+    width: 400px;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .embed-responsive {
+    width: 300px;
+    height: 180px;
   }
 }

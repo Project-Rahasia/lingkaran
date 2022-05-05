@@ -88,16 +88,17 @@
         const kelas = document.getElementById("kelas");
 
         masuk.addEventListener("click", () => {
-          if (nama.value === "" && kelas.value === "") {
+          if (nama.value === "" || kelas.value === "") {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
               text: 'Nama dan Kelas tidak boleh kosong!',
             });
           } else {
+            var now = Date.now();
             sessionStorage.setItem('nama', nama.value);
             sessionStorage.setItem('kelas', kelas.value);
-
+            sessionStorage.setItem('timer-4', now);
             location.href = './quiz.html';
           }
         });

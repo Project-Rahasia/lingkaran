@@ -73,7 +73,7 @@
     <!-- Main Content -->
     <div class="container my-4">
       <div class="row">
-        <div class="col-lg-10 col-sm-12 my-2">
+        <div class="col-lg-9 col-sm-12 my-2">
           <div class="card h-100 shadow">
             <div class="card-body">
               <div class="quiz-container">
@@ -88,12 +88,16 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-sm-12 my-2">
+        <div class="col-lg-3 col-sm-12 my-2">
           <div class="card h-100 shadow">
             <div class="card-body text-center">
               <div id="time" class="badge bg-dark fw-bold" style="font-size: 1em;">00 : 00</div>
               <hr>
-              <span class="number-btn"></span>
+              <div class="card bg-light text-white justify-content-end mb-2">
+                <div style="padding: 15px 2px; display: flex; justify-content: center">
+                  <span class="number-btn text-center"></span>
+                </div>
+              </div>
               <hr>
               <button id="submit" class="btn btn-md btn-danger end shadow">Selesai</button>
             </div>
@@ -118,7 +122,25 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script>
+      let arrayJawaban = [];
+      let arrayJawaban_urut = [];
+      let rand_q = [];
+      let rand_q_fix = [];
+
       let randomQuestion = questions.sort((a, b) => {return 0.5 - Math.random()});
+
+      let soalSession = JSON.parse(sessionStorage.getItem('soalSession-4'));
+
+      if (soalSession) {
+        var sliceQuestion;
+        sliceQuestion = soalSession;
+      } else {
+        var sliceQuestion;
+        // melakukan pemotongan array batasan soal yang ingin diambil
+        sliceQuestion = randomQuestion.slice(0, 10);
+        // console.log(sliceQuestion);
+        sessionStorage.setItem('soalSession-4', JSON.stringify(randomQuestion.slice(0, 10)));
+      }
 
       function buildQuiz() {
         const output = [];
@@ -131,8 +153,8 @@
             answers.push(
               `
                 <label>
-                  <input type="radio" name="question${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
-                  <span>${letter}. ${currentQuestion.answers[letter]}<span>
+                  <input type="radio" name="question-empat${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
+                  <span>${letter.toUpperCase()}. ${currentQuestion.answers[letter]}<span>
                 </label>
               `
             );
@@ -149,9 +171,20 @@
           );
             
           currentNumber++;
+          rand_q.push(currentQuestion.soal);
         });
         questionContainer.innerHTML = output.join("");
         // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+      }
+
+      let numberBtn = document.querySelector('.number-btn');
+      for (i = 0; i < sliceQuestion.length; i++) {
+        let li = document.createElement('span');
+        li.innerHTML = `
+            <button style="width:40px;" id="numbBtn${i}" type="button" class="btn btn-sm btn-outline-info mx-1 mt-1 pl-1 pr-1" onclick="paginationSlide(${i})">${
+          i + 1
+        }</button>`;
+        numberBtn.appendChild(li);
       }
 
       function results() {
@@ -163,7 +196,7 @@
         randomQuestion.forEach((currentQuestion, questionNumber) => {
           const answerContainer = answerContainers[questionNumber];
 
-          const selector = `input[name=question${questionNumber}]:checked`;
+          const selector = `input[name=question-empat${questionNumber}]:checked`;
           const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
           if(userAnswer === currentQuestion.correctAnswer) {
@@ -172,36 +205,51 @@
             numWrong++;
           }
 
-          sessionStorage.setItem('questionLength', randomQuestion.length);
-          sessionStorage.setItem('correct', numCorrect);
-          sessionStorage.setItem('wrong', numWrong);
-          location.href = './result.html';
+          sessionStorage.setItem('length-4', sliceQuestion.length);
+          sessionStorage.setItem('correct-4', numCorrect);
+          sessionStorage.setItem('wrong-4', numWrong);
+          sessionStorage.removeItem('soalSession-4');
+          for (let i = 0; i < rand_q.length; i++) {
+            for (let j = 0; j < rand_q.length; j++) {
+              if (i == rand_q[j]) {
+                arrayJawaban_urut.push(arrayJawaban[j]);
+                rand_q_fix.push(rand_q[j]);
+              }
+            }
+          }
+          sessionStorage.setItem('jawaban-4', JSON.stringify(arrayJawaban_urut));
+          for (i = 0; i <= 29; i++) {
+            sessionStorage.removeItem(`question-empat${i}`);
+          }
+          location.replace('./result.html');
         });
       }
 
       function showSlide(n) {
-        const bhm = document.getElementById(`number-btn${currentSlide}`);
-        const bhm2 = document.getElementById(`number-btn${n}`);
-        if(bhm){
-          document.getElementById(`number-btn${currentSlide}`).classList.remove('active');
-        }
-        if(bhm2){
-          document.getElementById(`number-btn${n}`).classList.add('active');
-        }
-      
+        document.getElementById(`numbBtn${currentSlide}`).classList.remove('active');
+        document.getElementById(`numbBtn${n}`).classList.add('active');
         slides[currentSlide].classList.remove('active-slide');
         slides[n].classList.add('active-slide');
 
-        const answerContainers = questionContainer.querySelectorAll(".answers");
+        const answerContainers = questionContainer.querySelectorAll('.answers');
         const answerContainer = answerContainers[currentSlide];
-        const selector = `input[name=question${currentSlide}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-        if (userAnswer != undefined) {
-          nomorSoal[currentSlide].classList.add('btn-success');
-          nomorSoal[currentSlide].classList.remove('btn-outline-secondary');
-        }
-        currentSlide = n;
 
+        const selector = `input[name=question-empat${currentSlide}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        if (userAnswer !== undefined) {
+          document.getElementById(`numbBtn${currentSlide}`).classList.remove('btn-outline-info');
+          document.getElementById(`numbBtn${currentSlide}`).classList.add('btn-success');
+          var elements = document.querySelectorAll(`input[name='question-empat${currentSlide}']`);
+          elements.forEach((element) => {
+            if (element.value == userAnswer) {
+              sessionStorage.setItem(element.name, `${element.name},${element.value}`);
+            }
+          });
+          // sessionStorage.setItem('')
+        }
+
+        currentSlide = n;
         if(currentSlide === 0) {
           backButton.style.display = "none";
         } else {
@@ -259,42 +307,65 @@
         });
       });
 
-      let numberButton = document.querySelector(".number-btn");
-      for(i=0;i<randomQuestion.length; i++) {
-        let li = document.createElement("span");
-        li.innerHTML = `<button type="button" id="number-btn${i}" class="btn btn-md btn-outline-secondary mx-1 mt-2 nomor-soal" onclick="paginationSlide(${i})">${i+1}</button>`;
-        numberButton.appendChild(li);
+      var timer = parseInt(sessionStorage.getItem('timer-4'));
+      var end = timer + 1000 * 60 * 60;
+      var countDownDate = end;
+
+      if (!countDownDate) {
+        parent.location.href = './index.html';
       }
-      let nomorSoal = document.querySelectorAll('.nomor-soal');
 
-      const showTime = document.querySelector("#time")
-      let startMinutes = 60
-      let seconds = 00
-      function countdown() {
-        setTimeout(countdown, 1000);
-        seconds = seconds < 10 ? `0${seconds}` : seconds;
-        showTime.innerHTML = `${startMinutes} : ${seconds}`;
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
 
-        seconds--
-        if(seconds < 0) {
-          seconds = 59;
-          startMinutes--;
-        }
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
 
-        if(startMinutes < 0) {
-          startMinutes = 0;
-          seconds = 0;
-        }
+        // Time calculations for days, hours, minutes and seconds
+        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        if(startMinutes === 0 && seconds === 0) {
+        // Output the result in an element with id="demo"
+        document.getElementById('time').innerHTML =
+          minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+        // If the count down is over, write some text
+        // console.log(distance);
+        if (distance < 0) {
           results();
+          localStorage.setItem('tampil', 'dissappear');
+          clearInterval(x);
+          parent.location.href = './result.html';
+        }
+      }, 1000);
+
+      if (soalSession) {
+        var sessCheckJawaban = [];
+        for (i = 0; i <= 29; i++) {
+          sessCheckJawaban[i] = sessionStorage.getItem(`question-empat${i}`);
+          if (sessCheckJawaban[i] != null) {
+            const splitCheck = sessCheckJawaban[i].split(',');
+            var elements = document.querySelectorAll(`input[name=${splitCheck[0]}]`);
+            elements.forEach((element) => {
+              if (element.value == splitCheck[1]) {
+                // console.log(element);
+                element.checked = true;
+                document.getElementById(`numbBtn${i}`).classList.remove('btn-outline-info');
+                document.getElementById(`numbBtn${i}`).classList.add('btn-success');
+              }
+            });
+          } else {
+            console.log('something went wrong');
+          }
         }
       }
-      countdown();
 
-      const nama = sessionStorage.getItem('nama');
-      if (nama === "") {
-        location.href = './'
+      if (!sessionStorage.getItem('nama') || !sessionStorage.getItem('kelas')) {
+        sessionStorage.removeItem('soalSession-4');
+        window.location = "./";
       }
     </script>
   </body>
